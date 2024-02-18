@@ -144,9 +144,9 @@ find_package(Threads REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
 
 if (tacopie_library)
-  target_link_libraries(${PROJECT_NAME} PUBLIC ${tacopie_library})
+  target_link_libraries(${PROJECT_NAME} PRIVATE ${tacopie_library})
 else ()
-  target_link_libraries(${PROJECT_NAME} PUBLIC tacopie)
+  target_link_libraries(${PROJECT_NAME} PRIVATE tacopie)
 endif ()
 
 ###
