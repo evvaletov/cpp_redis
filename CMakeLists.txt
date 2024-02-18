@@ -126,9 +126,12 @@ add_library(${PROJECT_NAME} SHARED ${cpp_redis_sources})
 ###
 # includes
 ###
+set(tacopie_includes "${CMAKE_CURRENT_SOURCE_DIR}/tacopie/includes")
 target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${cpp_redis_includes}>
-  $<INSTALL_INTERFACE:include>)
+  $<INSTALL_INTERFACE:include>
+  PRIVATE
+  ${tacopie_includes})
 
 if (WIN32)
   set_target_properties(${PROJECT_NAME} PROPERTIES
